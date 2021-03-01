@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model PoshFoods.Models.ContactUs
+ 
+<div>
+    <img src="~/lib/contact.jpeg" style="height:200px; width:80% " />
+</div>
+
+<h3>Fill the Form to contact us.</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index" asp-controller="ContactUs" method="post">
+
+            <div class="form-group">
+                <label asp-for="FirstName">Name:<span class="text-danger">*</span></label>
+                <input type="text" asp-for="FirstName" class="form-control" autofocus />
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastName">Last Name:<span class="text-danger">*</span></label>
+                <input type="text" asp-for="LastName"class="form-control" />
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Email:<span class="text-danger">*</span></label>
+                <input type="text" asp-for="Email"class="form-control" />
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone">Phone:<span class="text-danger">*</span></label>
+                <input type="text" asp-for="Phone" class="form-control"/>
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Message">Message:<span class="text-danger">*</span></label>
+                <textarea asp-for="Message" class="form-control"></textarea>
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+            <input type="submit" value="Submit" class="btn btn-dark" />
+
+        </form>
+     
+    </div>
+ 
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PoshFoods.Models.Branch>
+
+@{
+    ViewData["Title"] = "Branches";
+}
+<div>
+    <img src="~/lib/Pie-group-shot-e1542381186405.jpg" style="height: 200px; width:300px; border: solid" />
+    <img src="~/lib/1cfb9772e7.jpg" style="height:200px; width:300px; border: solid" />
+    <img src="~/lib/Big-Quiche-group-shot.jpg" style="height:200px; width:300px; border: solid" />
+</div>
+<h1>List of Branches:</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark">Add New Branch</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BranchID" class="btn btn-dark">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BranchID" class="btn btn-dark">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BranchID" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
